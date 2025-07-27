@@ -1,10 +1,11 @@
 "use client"
+
 import React, { use, useEffect } from 'react'
 import SideNav from './_components/SideNav'
 import DashboardHeader from './_components/DashboardHeader'
 import { db } from '@/utils/dbConfig'
 import { Budgets } from '@/utils/schema'
-import { useUser } from '@clerk/nextjs'
+import { useUser, ClerkProvider } from '@clerk/nextjs'
 import { eq } from 'drizzle-orm'
 import { useRouter } from 'next/navigation'
 
@@ -30,6 +31,7 @@ function DashboardLayout({children}) {
   }
 
   return (
+    <ClerkProvider>
     <div>
       <div className='fixed md:wd-64 hidden md:block'>
         <SideNav/>
@@ -39,6 +41,7 @@ function DashboardLayout({children}) {
       {children}
       </div>
     </div>
+    </ClerkProvider>
   )
 }
 
