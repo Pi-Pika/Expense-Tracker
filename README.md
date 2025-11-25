@@ -50,3 +50,71 @@ Follow these steps to set up the Expense Tracker application for local developme
 ```bash
 git clone [https://github.com/Pi-Pika/Expense-Tracker.git](https://github.com/Pi-Pika/Expense-Tracker.git)
 cd Expense-Tracker
+```
+Step 2: Install Dependencies
+Install the required packages using your preferred package manager:
+
+```bash
+
+npm install
+# OR
+yarn install
+```
+Step 3: Environment Variables
+Create a file named .env.local in the root directory and populate it with your keys.
+
+Code snippet
+
+# Clerk Keys
+```bash
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_live_xxxxxxxxxxxxxxxxxxxxxx
+CLERK_SECRET_KEY=sk_live_xxxxxxxxxxxxxxxxxxxxxx
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard
+```
+
+# Neon/Drizzle Database URL
+```bash
+DATABASE_URL="postgresql://user:password@host.neon.tech/dbname?sslmode=require"
+```
+Step 4: Run Database Migrations
+Use Drizzle Kit to push your schema to your Neon database:
+
+```bash
+
+npx drizzle-kit push:pg
+```
+Step 5: Run the Application
+Start the development server:
+
+```bash
+
+npm run dev
+# OR
+yarn dev
+```
+Open http://localhost:3000 in your browser.
+
+🧑‍💻 Usage
+To begin tracking expenses, you must first log in using the Clerk authentication flow. All data (budgets, expenses, and dashboard graphs) are strictly tied to your authenticated user ID, ensuring privacy and personal financial management.
+
+🤝 Contributing
+Contributions are highly appreciated! Whether you are fixing a bug, adding a new feature, or improving documentation, please feel free to:
+
+Fork the repository.
+
+Create a new branch (git checkout -b feature/AmazingFeature).
+
+Commit your changes (git commit -m 'Add amazing feature').
+
+Push to the branch (git push origin feature/AmazingFeature).
+
+Open a Pull Request.
+
+
+📞 Contact
+Project Link: https://github.com/Pi-Pika/Expense-Tracker
+
+Developer: @Pi-PikaDeveloper: [@Pi-Pika](https://sites.google.com/diu.edu.bd/piash5606/home?authuser=3)
