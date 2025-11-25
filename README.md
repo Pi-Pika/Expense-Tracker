@@ -1,26 +1,15 @@
-## https://expense-tracker-kappa-rouge.vercel.app/
+💰 Expense Tracker - Budgeting and Financial DashboardThe Expense Tracker is a secure, full-stack financial application designed to help users efficiently track budgets and monitor daily expenses. Built with the powerful Next.js framework, it offers a fast, user-centric interface and stores all data securely based on individual user logins.Live DemoFrontendBackend/DBAuthStyling✨ Key FeaturesThis application is built for personal financial management with a focus on security and visualization:🔒 Secure User Login: Uses Clerk for robust and easy user authentication. All data is scoped and visible only to the logged-in user.📊 Dashboard Visualization: Displays key financial data, including spending habits and budget allocation, in clear, interactive graphs.💵 Budget Tracking: Allows users to set specific budgets and track expenses against them in real-time.✍️ Expense Management: Simple forms for logging new expenses and viewing a history of all recorded transactions.🎨 Modern UI: Designed using Tailwind CSS for a fully responsive, clean, and modern user experience.🛠️ Tech StackThe Expense Tracker leverages a modern, server-side rendered (SSR) architecture:Framework: Next.js (React)Styling: Tailwind CSSDatabase: Neon (Serverless PostgreSQL)ORM: Drizzle ORMAuthentication: ClerkDeployment: Vercel🚀 Installation & Local SetupTo run this project locally, you will need Node.js, a Clerk account, and a Neon (or standard PostgreSQL) database connection.PrerequisitesNode.js (v18+) and npm/yarn/pnpmA Clerk account for authentication API keys.A Neon account for the PostgreSQL database URL.Step 1: Clone the Repositorygit clone [https://github.com/Pi-Pika/Expense-Tracker.git](https://github.com/Pi-Pika/Expense-Tracker.git)
+cd Expense-Tracker
+Step 2: Install DependenciesInstall the project dependencies using your preferred package manager:npm install
+# or yarn install
+# or pnpm install
+Step 3: Configure Environment VariablesCreate a .env.local file in the root of the project and add the following required variables:# Clerk Authentication
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="<YOUR_CLERK_PUBLISHABLE_KEY>"
+CLERK_SECRET_KEY="<YOUR_CLERK_SECRET_KEY>"
 
-## Getting Started
-
-First, run the development server:
-
-using command:
-
-npm run dev
-
-if it doesn't work saying "next" missing,
-then first use this command
-
-npm install                 [install the dependencies]
-
-then
-
-npm run dev
-
-Show database content
-
-npm run db:studio
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-
+# Database Connection (Neon/PostgreSQL)
+DATABASE_URL="<YOUR_NEON_POSTGRES_CONNECTION_STRING>"
+Remember to replace the bracketed values with your actual keys.Step 4: Database SetupRun the Drizzle migrations to set up the necessary tables in your Neon database:npx drizzle-kit push:pg
+You can optionally open the Drizzle Studio for a GUI view of your database schema:npm run db:studio
+Step 5: Run the ApplicationStart the development server:npm run dev
+Open your browser and navigate to http://localhost:3000 to see the application.🧑‍💻 UsageThe application requires a user to sign up or log in via the Clerk gateway. Once authenticated, the user will be able to:View Dashboard: See a summarized view of their financial health, including graph visualizations.Manage Budgets: Create and set limits for various spending categories.Log Expenses: Record new expenses, which are then tallied against their respective budgets and displayed in the dashboard graphs.🤝 ContributingWe welcome contributions to the Expense Tracker! To contribute:Fork the repository.Create a new feature branch (git checkout -b feature/new-feature).Commit your changes (git commit -m 'feat: add new feature').Push to the branch (git push origin feature/new-feature).Open a Pull Request.📄 LicenseThis project is licensed under the MIT License - see the LICENSE file for details.📞 ContactProject Link: https://github.com/Pi-Pika/Expense-TrackerDeveloper: @Pi-Pika
